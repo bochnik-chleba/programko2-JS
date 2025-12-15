@@ -105,14 +105,21 @@ else{
 * Požádej uživatele o slovo. Pomocí .include() zjisti,
 * zda slovo obsahuje písmeno "a". Vypiš do konzole
 */
- 
+/* 
 let slovo = "Slovo";
 
 while(true)
 {
     slovo=prompt("Zadejte prosim slovo");
-    slovo.toLowerCase()
-    if(slovo.includes("a"))
+
+    if(slovo==null)
+    {
+        console.log("Nebylo nic zadane..");
+        continue;
+    }
+
+    let afterSlovo = slovo.toLowerCase();
+    if(afterSlovo.includes("a"))
     {
         console.log(slovo, "obsahuje pismeno 'a' !");
     }
@@ -141,7 +148,8 @@ while(true)
 * Požádej uživatele o číslo. Pomocí ternárního operátoru zjisti,
 * zda je číslo prvočíslo či nikoliv.
 */
- 
+
+
 // zde bude tvoje řešení
  
  
