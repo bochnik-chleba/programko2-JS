@@ -138,31 +138,32 @@ while(true)
 * Požádej uživatele o slovo. Zjisti kolik kterých písmen obsahuje.
 * Použij .include() nad zadaným slovem. Vypiš do konzole.
 */
-
+/*
 let slovo="Slovo";
-let alpha = "abcdefghijklmnopqrstuvwyz";
-let pocet = new Array(26).fill(0);
+const alpha = "abcdefghijklmnopqrstuvwxyz";
+let pocet = new Array(26);
 
-parseInt(pocet);
-
+while(true)
 {
+    pocet.fill(0);
+
     slovo=prompt("Zadejte slovo prosim.");
 
     if(slovo==null)
     {
-        console.log("Nebylo nic zadano...");
-        //continue;
+        console.log("Zruseno!");
+        break;
     }
 
     let x=slovo.toLowerCase();
-    x+="#";
-    console.log(x);
+    
+    console.log(slovo);
 
     for(let i=0; i<26; i++)
     {
-        for(let j=0;j<x.length-1;j++)
+        for(let j=0;j<x.length;j++)
         {
-            if(x.substring(j,j+1).includes(alpha.charAt(i)));
+            if(x.at(j).includes(alpha.charAt(i)))
             {
                 pocet[i]++;
             }
@@ -185,6 +186,30 @@ parseInt(pocet);
 * zda je číslo prvočíslo či nikoliv.
 */
 
+function isPrime()
+{
+
+}
+
+let cislo=0;
+
+while(true)
+{
+    cislo = prompt("Zadej cislo prosim!!");
+
+    if(cislo==null)
+    {
+        console.log("Zruseno!");
+        break;
+    }
+    if(isNaN(cislo))
+    {
+        console.log("Neni cislo!");
+        continue;
+    }
+
+    //(cislo) ? 
+}
 
 // zde bude tvoje řešení
  
