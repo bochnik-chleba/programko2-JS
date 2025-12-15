@@ -138,7 +138,43 @@ while(true)
 * Požádej uživatele o slovo. Zjisti kolik kterých písmen obsahuje.
 * Použij .include() nad zadaným slovem. Vypiš do konzole.
 */
- 
+
+let slovo="Slovo";
+let alpha = "abcdefghijklmnopqrstuvwyz";
+let pocet = new Array(26).fill(0);
+
+parseInt(pocet);
+
+{
+    slovo=prompt("Zadejte slovo prosim.");
+
+    if(slovo==null)
+    {
+        console.log("Nebylo nic zadano...");
+        //continue;
+    }
+
+    let x=slovo.toLowerCase();
+    x+="#";
+    console.log(x);
+
+    for(let i=0; i<26; i++)
+    {
+        for(let j=0;j<x.length-1;j++)
+        {
+            if(x.substring(j,j+1).includes(alpha.charAt(i)));
+            {
+                pocet[i]++;
+            }
+        }
+
+        if(pocet[i]!=0)
+        {
+            console.log(slovo," obsahuje ",pocet[i],"krát ", alpha.charAt(i));
+        }
+    }
+
+}
 // zde bude tvoje řešení
  
  
