@@ -185,10 +185,32 @@ while(true)
 * Požádej uživatele o číslo. Pomocí ternárního operátoru zjisti,
 * zda je číslo prvočíslo či nikoliv.
 */
-
-function isPrime()
+/*
+function isPrime(x=0)
 {
 
+    let isIt=true;
+
+    for(let i=3;i<Math.sqrt(x);i+=2)
+    {
+        x%i==0 ? isIt=false : console.log(x," compared to ",i,) ;
+
+        if(!isIt){break;}
+ 
+        i+=OKolikSkipnout(x,i+2);
+    }
+
+    VypisVysledek(x,isIt ? true : false);
+}
+
+function OKolikSkipnout(x,i,skip=0)
+{
+    return i%3==0 || i%5 == 0 || i%7 == 0 || i%11 == 0 && x>i ? OKolikSkipnout(x, i+2, skip+2) : skip;
+}
+
+function VypisVysledek(x=0,bool=false)
+{
+    bool ? console.log(x," je prvocislo!") : console.log(x," neni prvocislo..");
 }
 
 let cislo=0;
@@ -202,13 +224,22 @@ while(true)
         console.log("Zruseno!");
         break;
     }
-    if(isNaN(cislo))
+
+    if(isNaN(cislo) || cislo==="")
     {
         console.log("Neni cislo!");
         continue;
     }
 
-    //(cislo) ? 
+    if(cislo % 1 != 0 || cislo < 0)
+    {
+        console.log("Urcovat muzeme pouze cisla prirozena!!");
+        continue;
+    }
+
+    parseInt(cislo);
+
+    cislo==0 || cislo==1 ? VypisVysledek(cislo,false) : cislo==2 || cislo==3 || cislo==5 || cislo==7 || cislo==11 ? VypisVysledek(cislo,true) : cislo%2==0 || cislo%3==0 || cislo%5==0 || cislo%7==0 || cislo%11==0 ? VypisVysledek(cislo,false): isPrime(cislo);
 }
 
 // zde bude tvoje řešení
