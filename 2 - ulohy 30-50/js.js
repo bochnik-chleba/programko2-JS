@@ -7,6 +7,11 @@
       - Použij událost onclick nebo addEventListener.
 */
 
+function alertHello()
+{
+      alert("Ahoj světe!");
+}
+
 /* 32) Po kliknutí na tlačítko změň text vybraného HTML elementu.
       - Napiš funkci, která změní .textContent nebo .innerText.
       - Vyzkoušej použití arrow funkce.

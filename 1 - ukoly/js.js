@@ -185,7 +185,7 @@ while(true)
 * Požádej uživatele o číslo. Pomocí ternárního operátoru zjisti,
 * zda je číslo prvočíslo či nikoliv.
 */
-/*
+
 function isPrime(x=0)
 {
 
