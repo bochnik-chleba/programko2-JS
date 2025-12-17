@@ -17,10 +17,43 @@ function alertHello()
       - Vyzkoušej použití arrow funkce.
 */
 
+function writeIntoMe()
+{
+      let text=prompt("Ahoj, napis mi vzkaz :)");
+
+      if(!text)
+      {
+            document.getElementById("text32").innerText = "-- Nic jsi nenapsal :( --";
+            return;
+      }
+
+      document.getElementById("text32").innerText = text;
+}
+
 /* 33) Vypiš do <div> aktuální čas, který se bude každou sekundu aktualizovat.
       - Použij setInterval a vlastní funkci pro získání času.
       - Funkce by měla vracet formátovaný čas (HH:MM:SS).
 */
+
+let cas = new Date();
+let divText=document.getElementById("clock33");
+
+setInterval(printTime(),2);
+
+function printTime()
+{
+      divText.innerText= cas.getDate();
+      divText.innerText+=". ";
+      divText.innerText+=cas.getMonth();
+      divText.innerText+=".\t\t";
+      divText.innerText+=cas.getHours();
+      divText.innerText+=":";
+      divText.innerText+=cas.getMinutes();
+      divText.innerText+=":";
+      divText.innerText+=cas.getSeconds();
+      divText.innerText+=";";
+      divText.innerText+=cas.getMilliseconds();
+}
 
 /* 34) Po kliknutí na tlačítko změň barvu pozadí celé stránky.
       - Vytvoř funkci s parametrem (barva).
