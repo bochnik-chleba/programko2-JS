@@ -19,15 +19,15 @@ function alertHello()
 
 function writeIntoMe()
 {
-      let text=prompt("Ahoj, napis mi vzkaz :)");
+      let text32=prompt("Ahoj, napis mi vzkaz :)");
 
-      if(!text)
+      if(!text32)
       {
             document.getElementById("text32").innerText = "-- Nic jsi nenapsal :( --";
             return;
       }
 
-      document.getElementById("text32").innerText = text;
+      document.getElementById("text32").innerText = text32;
 }
 
 /* 33) Vypiš do <div> aktuální čas, který se bude každou sekundu aktualizovat.
@@ -35,24 +35,27 @@ function writeIntoMe()
       - Funkce by měla vracet formátovaný čas (HH:MM:SS).
 */
 
-let cas = new Date();
-let divText=document.getElementById("clock33");
+let divControl33=document.getElementById("clock33");
 
-setInterval(printTime(),2);
+setInterval(printTime,1)
 
 function printTime()
 {
-      divText.innerText= cas.getDate();
-      divText.innerText+=". ";
-      divText.innerText+=cas.getMonth();
-      divText.innerText+=".\t\t";
-      divText.innerText+=cas.getHours();
-      divText.innerText+=":";
-      divText.innerText+=cas.getMinutes();
-      divText.innerText+=":";
-      divText.innerText+=cas.getSeconds();
-      divText.innerText+=";";
-      divText.innerText+=cas.getMilliseconds();
+      let cas33 = new Date();
+
+      console.log("time updated!");
+
+      divControl33.innerText= cas33.getDate();
+      divControl33.innerText+=". ";
+      divControl33.innerText+=cas33.getMonth();
+      divControl33.innerText+=".\n";
+      divControl33.innerText+=cas33.getHours();
+      divControl33.innerText+=":";
+      divControl33.innerText+=cas33.getMinutes();
+      divControl33.innerText+=":";
+      divControl33.innerText+=cas33.getSeconds();
+      divControl33.innerText+=";";
+      divControl33.innerText+=cas33.getMilliseconds();
 }
 
 /* 34) Po kliknutí na tlačítko změň barvu pozadí celé stránky.
@@ -60,6 +63,42 @@ function printTime()
       - Vyzkoušej nastavit hodnotu přes document.body.style.
 */
 
+let bodyControl34=document.body;
+
+let click34Count=0;
+
+let defaultBackground34=bodyControl34.style.backgroundColor;
+
+function changeBackground()
+{
+      switch(click34Count)
+      {
+            case 0:
+                  bodyControl34.style.backgroundColor="black";
+                  click34Count++;
+                  break;
+            case 1:
+                  bodyControl34.style.backgroundColor="red";
+                  click34Count++;
+                  break;
+            case 2:
+                  bodyControl34.style.backgroundColor="aqua";
+                  click34Count++;
+                  break;
+            case 3:
+                  bodyControl34.style.backgroundColor="lime";
+                  click34Count++;
+                  break;
+            case 4:
+                  bodyControl34.style.backgroundColor="orange";
+                  click34Count++;
+                  break;
+            default:
+                  bodyControl34.style.backgroundColor=defaultBackground34; 
+                  click34Count=0;
+                  break;
+      }
+}
 /* 35) Po najetí myší na obrázek ho zvětši.
       - Použij eventy mouseover a mouseout.
       - Změnu proveď pomocí třídy v CSS nebo style.width v JS.
