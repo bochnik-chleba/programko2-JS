@@ -37,6 +37,16 @@ function writeIntoMe()
 
 let divControl33=document.getElementById("clock33");
 
+function formatTime(x,y=2)
+{
+      while((y-x.length)>0)
+      {
+            x = "0" + x ;
+      }
+
+      return x;
+}
+
 setInterval(printTime,1)
 
 function printTime()
@@ -45,17 +55,22 @@ function printTime()
 
       console.log("time updated!");
 
-      divControl33.innerText= cas33.getDate();
+      divControl33.innerText=formatTime(cas33.getDate().toString());
       divControl33.innerText+=". ";
-      divControl33.innerText+=cas33.getMonth();
+
+      divControl33.innerText+=formatTime((cas33.getMonth()+1).toString());
       divControl33.innerText+=".\n";
-      divControl33.innerText+=cas33.getHours();
+
+      divControl33.innerText+=formatTime(cas33.getHours().toString());
       divControl33.innerText+=":";
-      divControl33.innerText+=cas33.getMinutes();
+
+      divControl33.innerText+=formatTime(cas33.getMinutes().toString());
       divControl33.innerText+=":";
-      divControl33.innerText+=cas33.getSeconds();
+
+      divControl33.innerText+=formatTime(cas33.getSeconds().toString());
       divControl33.innerText+=";";
-      divControl33.innerText+=cas33.getMilliseconds();
+
+      divControl33.innerText+=formatTime(cas33.getMilliseconds().toString(),3);
 }
 
 /* 34) Po kliknutí na tlačítko změň barvu pozadí celé stránky.
