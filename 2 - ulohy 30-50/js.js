@@ -59,7 +59,10 @@ function printTime()
       divControl33.innerText+=". ";
 
       divControl33.innerText+=formatTime((cas33.getMonth()+1).toString());
-      divControl33.innerText+=".\n";
+      divControl33.innerText+=". ";
+
+      divControl33.innerText+=cas33.getFullYear();
+      divControl33.innerText+="\n";
 
       divControl33.innerText+=formatTime(cas33.getHours().toString());
       divControl33.innerText+=":";
@@ -78,11 +81,11 @@ function printTime()
       - Vyzkoušej nastavit hodnotu přes document.body.style.
 */
 
-let bodyControl34=document.body;
+const bodyControl34=document.body;
+
+const defaultBackground34=bodyControl34.style.backgroundColor;
 
 let click34Count=0;
-
-let defaultBackground34=bodyControl34.style.backgroundColor;
 
 function changeBackground()
 {
@@ -118,6 +121,18 @@ function changeBackground()
       - Použij eventy mouseover a mouseout.
       - Změnu proveď pomocí třídy v CSS nebo style.width v JS.
 */
+
+const img35 = document.getElementById("img35");
+
+const img35DEFAULTWIDTH=img35.style.width;
+
+img35.addEventListener("mouseover",(e)=>{
+      e.target.style.width="20%";
+})
+
+img35.addEventListener("mouseout",(e)=>{
+      e.target.style.width=img35DEFAULTWIDTH;
+})
 
 /* 36) Po odeslání formuláře vypiš hodnoty inputů do konzole.
       - Zakázat přirozené odeslání formuláře pomocí event.preventDefault().

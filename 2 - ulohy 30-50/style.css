@@ -1,0 +1,4 @@
+#img35{
+    transition: transform 0.5s cubic-bezier(0.45, 0, 0.55, 1);
+    transition: width 250ms;
+}

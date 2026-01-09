@@ -200,7 +200,7 @@ function isPrime(x=0)
         i+=OKolikSkipnout(x,i+2);
     }
 
-    VypisVysledek(x,isIt ? true : false);
+    VypisVysledek(x,isIt);
 }
 
 function OKolikSkipnout(x,i,skip=0)
@@ -239,7 +239,10 @@ while(true)
 
     parseInt(cislo);
 
-    cislo==0 || cislo==1 ? VypisVysledek(cislo,false) : cislo==2 || cislo==3 || cislo==5 || cislo==7 || cislo==11 ? VypisVysledek(cislo,true) : cislo%2==0 || cislo%3==0 || cislo%5==0 || cislo%7==0 || cislo%11==0 ? VypisVysledek(cislo,false): isPrime(cislo);
+    cislo==0 || cislo==1 ? VypisVysledek(cislo,false)
+    : cislo==2 || cislo==3 || cislo==5 || cislo==7 || cislo==11 ? VypisVysledek(cislo,true)
+    : cislo%2==0 || cislo%3==0 || cislo%5==0 || cislo%7==0 || cislo%11==0 ? VypisVysledek(cislo,false)
+    : isPrime(cislo);
 }
 
 // zde bude tvoje řešení
