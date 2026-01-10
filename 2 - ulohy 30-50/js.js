@@ -53,8 +53,6 @@ function printTime()
 {
       let cas33 = new Date();
 
-      console.log("time updated!");
-
       divControl33.innerText=formatTime(cas33.getDate().toString());
       divControl33.innerText+=". ";
 
@@ -139,10 +137,46 @@ img35.addEventListener("mouseout",(e)=>{
       - Použij funkci, která načte hodnoty inputů.
 */
 
+const odeslat36 = document.getElementById("form36");
+
+odeslat36.addEventListener("submit",(e)=>{
+
+      e.preventDefault();
+
+      const formJmeno36 = document.getElementById("name36").value;
+      const formEmail36 = document.getElementById("email36").value;
+
+      if(formJmeno36)
+      {
+            console.log("jmeno: ",formJmeno36);
+      }
+
+      if(formEmail36)
+      {
+            console.log("email: ",formEmail36);
+      }
+
+})
+
 /* 37) Vytvoř jednoduché „počítadlo kliknutí“.
       - Po každém kliknutí zvýší číslo o 1 a zobraz ho v HTML.
       - Proměnná se musí nacházet ve správném scope.
 */
+
+const btn37 = document.getElementById("btn37");
+
+const counter37 = document.getElementById("counter37");
+
+const c37defsize = 16;
+
+let count37 = 0;
+
+btn37.addEventListener("click",(e)=>{
+
+      counter37.innerText=++count37;
+
+      counter37.style.fontSize= (count37+c37defsize) + "px";
+})
 
 /* 38) Po kliknutí na tlačítko skryj nebo zobraz text.
       - Můžeš použít classList.toggle().
