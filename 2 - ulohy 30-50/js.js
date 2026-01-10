@@ -34,7 +34,7 @@ function writeIntoMe()
       - Použij setInterval a vlastní funkci pro získání času.
       - Funkce by měla vracet formátovaný čas (HH:MM:SS).
 */
-
+/*
 let divControl33=document.getElementById("clock33");
 
 function formatTime(x,y=2)
@@ -182,6 +182,22 @@ btn37.addEventListener("click",(e)=>{
       - Můžeš použít classList.toggle().
       - Zvaž použití anonymní nebo arrow funkce.
 */
+
+const btn38 = document.getElementById("btn38");
+const p38 = document.getElementById("text38"),
+      p38Style = window.getComputedStyle(p38),
+      p38DefVisi = p38Style.getPropertyValue("visibility");
+
+let toggle38=true;
+
+btn38.addEventListener("click",(e)=>{
+
+      toggle38 = !toggle38;
+
+      p38.style.visibility = toggle38 ? p38DefVisi : "hidden" ;
+
+      e.target.innerText = toggle38 ? "Skryj" : "Zobraz" ;
+})
 
 /* 39) Validuj formulář – zkontroluj, jestli je vyplněné jméno a e-mail.
       - Pokud není validní, zobraz chybovou hlášku.
