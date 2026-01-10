@@ -165,9 +165,9 @@ odeslat36.addEventListener("submit",(e)=>{
 
 const btn37 = document.getElementById("btn37");
 
-const counter37 = document.getElementById("counter37");
-
-const c37defsize = 16;
+const counter37 = document.getElementById("counter37"),
+      c37Style=window.getComputedStyle(counter37),
+      c37defsize= parseFloat(c37Style.getPropertyValue("font-size"));
 
 let count37 = 0;
 
@@ -240,6 +240,18 @@ submit39.addEventListener("submit",(e)=>{
       - Hodnota ze slideru bude vstupním parametrem funkce.
 */
 
+const slider40 = document.getElementById("slider40");
+const p40=document.getElementById("text40"),
+      p40Style=window.getComputedStyle(p40),
+      p40DefSize=parseFloat(p40Style.getPropertyValue("font-size"));
+
+      //sync
+      slider40.value=p40DefSize;
+
+slider40.addEventListener("input",()=>{
+
+      p40.style.fontSize=slider40.value+"px";
+})
 
 /* =====================================================
    Práce s formuláři a uživatelskými daty – obecné úkoly
