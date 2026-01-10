@@ -173,7 +173,7 @@ let count37 = 0;
 
 btn37.addEventListener("click",(e)=>{
 
-      counter37.innerText=++count37;
+      counter37.innerText= ++count37;
 
       counter37.style.fontSize= (count37+c37defsize) + "px";
 })
@@ -203,6 +203,37 @@ btn38.addEventListener("click",(e)=>{
       - Pokud není validní, zobraz chybovou hlášku.
       - Použij jednoduchou podmínku a funkci validateForm().
 */
+
+const submit39 = document.getElementById("form39");
+
+submit39.addEventListener("submit",(e)=>{
+
+      e.preventDefault();
+
+      const jmeno39 = document.getElementById("name39").value;
+      const email39 = document.getElementById("email39").value;
+
+      if(!jmeno39 && !email39)
+      {
+            alert("chybějící údaje!");
+            return;
+      }
+
+      const regEmail = /^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
+
+      if(!jmeno39 || !jmeno39.trim())
+      {
+            alert("invalidní jméno");
+            return;
+      }
+      if(!regEmail.test(email39))
+      {
+            alert("invalidní emailová adresa");
+            return;
+      }
+
+      alert("údaje jsou validní");
+})
 
 /* 40) Pomocí slideru (input type="range") měň velikost písma textu.
       - Po změně hodnoty aktualizuj style.fontSize.
