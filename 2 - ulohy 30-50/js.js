@@ -293,8 +293,9 @@ function generatePassword(len)
 
 function factorial(x)
 {
+      if(x==undefined||x==null){return "";}
       if(x<0){return "matika neumožňuje negativní factoriál";}
-      if(x==0){return 1;}
+      if(x===0){return 1;}
 
       return x>1 ? x*factorial(x-1)
       :x;
@@ -305,11 +306,16 @@ function factorial(x)
       - Odstraň mezery a porovnej text pozpátku.
 */
 
-isPalindrome(x)
+function isPalindrome(x)
 {
       if(x==undefined||x==null||!x)
       {
-            return false;
+            return "Nic nebylo zadano..";
+      }
+
+      if(x.length<3)
+      {
+            return "U kratkych slov to ztraci smysl..";
       }
 
       const regMezery= /\s/;
@@ -317,7 +323,7 @@ isPalindrome(x)
       x=x.replace(regMezery, "");
       x=x.toLowerCase();
 
-      isIt=true;
+      let isIt=true;
 
       for(let i=0;i<(x.length)/2;i++)
       {
@@ -328,7 +334,7 @@ isPalindrome(x)
             }
       }
 
-      return isIt;
+      return isIt ? "Ano, je to palindrom." : "Ne, neni to palindrom.";
 }
 
 /* 44) Vytvoř jednoduché stopky – Start / Stop / Reset.
