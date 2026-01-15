@@ -273,15 +273,63 @@ slider40.addEventListener("input",()=>{
       - Použij Math.random a vlastní pole znaků.
 */
 
+const znaky = "#&@{}đĐ[]łŁ€%1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ§"
+function generatePassword(len)
+{
+      let x="";
+
+      for(let i=0;i<len;i++)
+      {
+            x+=znaky.charAt(Math.round(Math.random()*znaky.length));
+      }
+
+      return x;
+}
+
 /* 42) Spočítej faktoriál zadaného čísla.
       - Vytvoř klasickou funkci nebo arrow funkci.
       - Vyzkoušej rekurzi nebo cyklus.
 */
 
+function factorial(x)
+{
+      if(x<0){return "matika neumožňuje negativní factoriál";}
+      if(x==0){return 1;}
+
+      return x>1 ? x*factorial(x-1)
+      :x;
+}
+
 /* 43) Zjisti, zda je text palindrom („kajak“, „oko“).
       - Vytvoř funkci, která vrací true/false.
       - Odstraň mezery a porovnej text pozpátku.
 */
+
+isPalindrome(x)
+{
+      if(x==undefined||x==null||!x)
+      {
+            return false;
+      }
+
+      const regMezery= /\s/;
+
+      x=x.replace(regMezery, "");
+      x=x.toLowerCase();
+
+      isIt=true;
+
+      for(let i=0;i<(x.length)/2;i++)
+      {
+            if(x.charAt(i)!=x.charAt(x.length-1-i))
+            {
+                  isIt=false;
+                  break;
+            }
+      }
+
+      return isIt;
+}
 
 /* 44) Vytvoř jednoduché stopky – Start / Stop / Reset.
       - Použij setInterval a clearInterval.
