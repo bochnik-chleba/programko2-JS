@@ -342,6 +342,87 @@ function isPalindrome(x)
       - Funkce musí správně pracovat s proměnnými ve scope.
 */
 
+const stopky44 = document.getElementById("stopky44");
+
+let stopky44Interval;
+
+let hh=0,mm=0,ss=0,ms=0;
+
+let isRunning44=false;
+
+function updateTimer44()
+{
+      stopky44.textContent= String(hh).padStart(1,"0") + " : " + 
+      String(mm).padStart(2,"0") + " : " + 
+      String(ss).padStart(2,"0") + " ; " +
+      String(ms).padStart(2,"0");
+}
+
+function stopky44Run()
+{
+      ms++;
+
+      //javascript dlouhe cisla a cisla s dlouhou desetinnou casti zapisuje exponenialni notaci
+      //coz dodrbe parseint funkci a tudiz nefunguje tento zakladni algoritmus, ktery by v kazdem
+      //normalnim jazyce fungoval naproto vporadku
+      /*
+      hh = parseInt(x/360000);
+      mm = parseInt((x-(hh*360000))/6000);
+      ss = parseInt((x-(hh*360000)-(mm*6000))/100);
+      ms = parseInt((x-(hh*360000)-(mm*6000)-(ss*100)));
+      */
+     //takze misto toho tu rodina if statementu
+
+     //gj javashit
+
+      if(ms>=100)
+      {
+            ms=0;
+            ss++;
+      }
+
+      if(ss>=60)
+      {
+            ss=0;
+            mm++;
+      }
+      if(mm>=60)
+      {
+            mm=0;
+            hh++;
+      }
+
+      updateTimer44()
+}
+
+function startTimer()
+{
+      if(!isRunning44)
+      {
+            isRunning44=true;
+            stopky44Interval = setInterval(stopky44Run,10);
+      }
+}
+
+function stopTimer()
+{
+      if(isRunning44)
+      {
+            isRunning44=false;
+            clearInterval(stopky44Interval);
+      }
+}
+
+function resetTimer()
+{
+      stopTimer();
+      hh=0;
+      mm=0;
+      ss=0;
+      ms=0;
+      updateTimer44()
+}
+
 /* 45) Simuluj hod kostkou (1–6).
       - Funkce vrací náhodné číslo 1–6.
       - Výsledek vypiš do HTML.
