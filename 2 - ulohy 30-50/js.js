@@ -428,6 +428,61 @@ function resetTimer()
       - Výsledek vypiš do HTML.
 */
 
+const btn45 = document.getElementById("btn45");
+
+const vysl45 = document.getElementById("dice45");
+
+let isRunning45=false;
+
+btn45.addEventListener("click",()=>{
+
+      if(isRunning45)
+      {
+            return;
+      }
+      isRunning45=true;
+
+      vysl45.style.color="black";
+      vysl45.style.fontSize="16px";
+
+      const kolikOtoceni45=Math.floor(Math.random()*6)+9;
+      let count45=0;
+      let setrvace45=0;
+
+      const rollingInterval = setInterval(()=>{
+      
+
+            if((2*count45)<=setrvace45)
+            {
+                  count45++;
+
+                  let roll45 = Math.floor(Math.random()*6)+1;
+                  if(roll45==vysl45.textContent)
+                  {
+                        roll45=(roll45+6+3)%6+1;
+                  }
+                  vysl45.textContent=roll45;
+
+                  setrvace45=0;
+            }
+            else
+            {
+                  setrvace45++;
+            }
+
+            if(setrvace45>=(kolikOtoceni45*2))
+            {
+                  clearInterval(rollingInterval);
+                  isRunning45=false;
+                  if(vysl45.textContent==6)
+                  {
+                        vysl45.style.color="gold";
+                        vysl45.style.fontSize="22px";
+                  }
+            }
+      },13)
+})
+
 /* 46) Najdi nejčastější hodnotu v poli (moda).
       - Vytvoř funkci, která přijme pole jako parametr.
       - Použij objektový „počítací“ slovník (frequency map).
