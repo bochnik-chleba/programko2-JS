@@ -9,6 +9,22 @@
 
 // zde bude vaše řešení
 
+const input70 = document.getElementById("Input70");
+const btn70 = document.getElementById("run70");
+btn70.addEventListener("click",()=>{
+
+    if(!input70.value){return;}
+
+    const regEmail70 = /^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
+
+    if(!regEmail70.test(input70.value))
+    {
+        alert("emailová adresa není správně napsaná!");
+        return;
+    }
+
+    alert("email úspěšně ověřen!");
+})
 
 /* -----------------------------------------------------------
  * Úloha 71: Hledání čísel v textu
