@@ -490,6 +490,9 @@ btn45.addEventListener("click",()=>{
 
 function mode(pole46)
 {
+      if(!Array.isArray(pole46)){return "nelze iterovat pres tohlencto!";}
+      if(!pole46.length){return "pole je prazdne!";}
+
       const freqmap = {};
       const modes = {};
       let currentMax=0;
@@ -530,10 +533,44 @@ function mode(pole46)
       - Funkce dostane objekt Date a vrací string.
 */
 
+function formatDateCZ(datum47)
+{     
+      return String(datum47.getDate()).padStart(2,"0") + ". "
+            + String(datum47.getMonth()+1).padStart(2,"0") + ". "
+            + String(datum47.getFullYear());
+}
+
 /* 48) Zjisti, kolik dní zbývá do konce roku.
       - Spočítej rozdíl mezi dnešním datem a 31.12.
       - Vrátí celé číslo (Math.floor).
 */
+function daysToEndOfYear()
+{
+      const datum48 = new Date();
+
+      let theDays = 1;
+
+      switch(datum48.getMonth()+1)
+      {
+            case 1: theDays+=31;
+            case 2: !(datum48.getFullYear()%400) ? theDays+=29
+                  : !(datum48.getFullYear()%4) && (datum48.getFullYear()%100) ? theDays+=29
+                  : theDays+=28;
+            case 3: theDays+=31;
+            case 4: theDays+=30;
+            case 5: theDays+=31;
+            case 6: theDays+=30;
+            case 7: theDays+=31;
+            case 8: theDays+=31;
+            case 9: theDays+=30;
+            case 10: theDays+=31;
+            case 11: theDays+=30;
+            case 12: theDays+=31;
+            break;
+      }
+
+      return theDays-datum48.getDate() + " dní zbývá do nového roku"
+}
 
 /* 49) Vytvoř jednoduchý to-do list:
       - Přidávání úkolů
