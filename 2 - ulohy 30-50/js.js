@@ -488,6 +488,43 @@ btn45.addEventListener("click",()=>{
       - Použij objektový „počítací“ slovník (frequency map).
 */
 
+function mode(pole46)
+{
+      const freqmap = {};
+      const modes = {};
+      let currentMax=0;
+
+      for(const index of pole46)
+      {
+            freqmap[index] = freqmap[index] ?
+                  freqmap[index]+1 :
+                  1;
+
+            if(freqmap[index]>currentMax){currentMax=freqmap[index];}
+      }
+
+      for(const index in freqmap)
+      {
+            if(freqmap[index]==currentMax)
+            {
+                  modes[index]=freqmap[index];
+            }
+      }
+
+      let output="";
+
+      let viacej = false;
+
+      for(const index in modes)
+      {
+            if(viacej){output+="\na taktéž\n"};
+            output+= index + " se v poli nachazi " + modes[index] + "-krát";
+
+            viacej=true;
+      }
+      return output;
+}
+
 /* 47) Vytvoř funkci, která formátuje datum do českého formátu
       (DD.MM.YYYY).
       - Funkce dostane objekt Date a vrací string.
