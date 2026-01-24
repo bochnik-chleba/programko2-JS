@@ -578,6 +578,63 @@ function daysToEndOfYear()
       - Každá operace musí být funkce.
 */
 
+const todoInput = document.getElementById("todoInput");
+const todoList = document.getElementById("todoList");
+
+function addTodo()
+{
+      const todoNew = document.createElement("div");
+
+      const todoInnerText = document.createElement("p");
+      todoInnerText.textContent=todoInput.value;
+      todoInnerText.style.fontFamily="consolas";
+      todoInnerText.style.fontSize="22px";
+      todoInnerText.style.color="RoyalBlue";
+      todoInnerText.style.letterSpacing="2px";
+      todoInnerText.style.borderWidth="3px";
+      todoInnerText.style.margin="5px";
+      todoInnerText.style.padding="7px";
+
+      const todoEditBtn = document.createElement("button");
+      todoEditBtn.textContent="Upravit";
+      todoEditBtn.style.margin="12px";
+      todoEditBtn.style.padding="7px";
+      todoEditBtn.style.borderWidth="3px";
+      todoEditBtn.style.color="RoyalBlue";
+      todoEditBtn.addEventListener("click",(e)=>{
+
+            const editingThisOne = e.target.parentElement.querySelector("p");
+
+            const change = prompt("Proveďte změnu: ", editingThisOne.textContent);
+
+            if(!change || change == null || change == undefined)
+            {
+                  return;
+            }
+
+            editingThisOne.textContent=change;
+            return;
+      })
+
+      const todoDelBtn = document.createElement("button");
+      todoDelBtn.textContent="Smazat";
+      todoDelBtn.style.margin="12px";
+      todoDelBtn.style.padding="7px";
+      todoDelBtn.style.borderWidth="3px";
+      todoDelBtn.style.color="Crimson";
+      todoDelBtn.addEventListener("click",(e)=>{
+
+            const dellingThis = e.target.parentElement;
+            dellingThis.remove();
+      })
+
+      todoNew.appendChild(todoInnerText);
+      todoNew.appendChild(todoEditBtn);
+      todoNew.appendChild(todoDelBtn);
+
+      todoList.appendChild(todoNew);
+}
+
 /* 50) Ulož a načti data z localStorage (např. skóre nebo jméno).
       - Použij localStorage.setItem a localStorage.getItem.
       - Zobraz načtená data v HTML.
