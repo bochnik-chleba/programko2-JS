@@ -655,5 +655,6 @@ function saveName()
 
 function loadName()
 {
+      if(!localStorage.getItem("name")){return;}
       out50.textContent=localStorage.getItem("name");
 }
