@@ -34,7 +34,7 @@ function writeIntoMe()
       - Použij setInterval a vlastní funkci pro získání času.
       - Funkce by měla vracet formátovaný čas (HH:MM:SS).
 */
-/*
+
 let divControl33=document.getElementById("clock33");
 
 function formatTime(x,y=2)
@@ -520,7 +520,7 @@ function mode(pole46)
 
       for(const index in modes)
       {
-            if(viacej){output+="\na taktéž\n"};
+            if(viacej){output+="\na taktéž,\n"};
             output+= index + " se v poli nachazi " + modes[index] + "-krát";
 
             viacej=true;
@@ -583,6 +583,7 @@ const todoList = document.getElementById("todoList");
 
 function addTodo()
 {
+      if(!todoInput.value){return;}
       const todoNew = document.createElement("div");
 
       const todoInnerText = document.createElement("p");
@@ -636,6 +637,23 @@ function addTodo()
 }
 
 /* 50) Ulož a načti data z localStorage (např. skóre nebo jméno).
-      - Použij localStorage.setItem a localStorage.getItem.
-      - Zobraz načtená data v HTML.
+- Použij localStorage.setItem a localStorage.getItem.
+- Zobraz načtená data v HTML.
 */
+
+const name50 = document.getElementById("name50");
+const out50 = document.getElementById("output50");
+
+function saveName()
+{
+      if(!name50.value){return;}
+
+      localStorage.setItem("name",name50.value);
+
+      out50.textContent="Jméno uloženo!";
+}
+
+function loadName()
+{
+      out50.textContent=localStorage.getItem("name");
+}
