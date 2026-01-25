@@ -43,24 +43,13 @@ run71.addEventListener("click",()=>{
 
     if(!input71.value){return;}
 
-    const regCisla71 = /[0-9]/;
+    const regCisla71 = /(\-)?([0-9])+/g;
 
-    const pole71=[];
+    out71.textContent="";
 
-    for(const char of input71.value)
-    {
-        if(char.match(regCisla71))
-        {
-            if(!pole71.length){out71.textContent="Text obsahuje cislice: "}
-            else{out71.textContent+=", "};
+    out71.textContent=input71.value.match(regCisla71);
 
-            pole71.push(Number(char));
-
-            out71.textContent+=char;
-        }
-    }
-
-    if(!pole71.length)
+    if(!out71.textContent)
     {
         out71.textContent="Zadna cisla text neobshuje!";
         return;
