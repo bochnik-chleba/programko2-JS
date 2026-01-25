@@ -36,6 +36,36 @@ btn70.addEventListener("click",()=>{
 
 // zde bude vaše řešení
 
+const input71 = document.getElementById("Input71");
+const out71 = document.getElementById("Output71");
+const run71 = document.getElementById("run71");
+run71.addEventListener("click",()=>{
+
+    if(!input71.value){return;}
+
+    const regCisla71 = /[0-9]/;
+
+    const pole71=[];
+
+    for(const char of input71.value)
+    {
+        if(char.match(regCisla71))
+        {
+            if(!pole71.length){out71.textContent="Text obsahuje cislice: "}
+            else{out71.textContent+=", "};
+
+            pole71.push(Number(char));
+
+            out71.textContent+=char;
+        }
+    }
+
+    if(!pole71.length)
+    {
+        out71.textContent="Zadna cisla text neobshuje!";
+        return;
+    }
+})
 
 /* -----------------------------------------------------------
  * Úloha 72: Formátování data
