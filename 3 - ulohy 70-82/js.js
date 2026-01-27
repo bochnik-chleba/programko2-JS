@@ -66,6 +66,23 @@ run71.addEventListener("click",()=>{
 
 // zde bude vaše řešení
 
+const input72 = document.getElementById("Input72");
+const out72 = document.getElementById("Output72");
+const run72 =document.getElementById("run72");
+run72.addEventListener("click",()=>{
+
+    if(!input72.value) {return;}
+
+    const regDate72 = /^(\d{1,2})([\s\.\-\/]+)(\d{1,2})([\s\.\-\/]+)(\d{4})$/;
+
+    if(!regDate72.test(input72.value))
+    {
+        out72.textContent="Datum neexistuje";
+        return;
+    }
+
+    out72.textContent=input72.value.replace(regDate72,"$5 - $3 - $1");
+})
 
 /* -----------------------------------------------------------
  * Úloha 73: Validace hesla
