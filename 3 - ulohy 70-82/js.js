@@ -98,6 +98,24 @@ run72.addEventListener("click",()=>{
 
 // zde bude vaše řešení
 
+const input73 = document.getElementById("Input73");
+const out73 = document.getElementById("Output73");
+const run73 = document.getElementById("run73");
+run73.addEventListener("click",()=>{
+
+    if(!input73.value) {return;}
+
+    const regHeslo73 = /(?=^.{8,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9])/;
+
+    if(!regHeslo73.test(input73.value))
+    {
+        out73.textContent="Heslo neni dostačně silné - nesplňuje minimální požadavky!";
+        return;
+    }
+
+    out73.textContent="Heslo ověřeno!";
+})
+
 
 /* -----------------------------------------------------------
  * Úloha 74: Extrakce HTML tagů
@@ -109,6 +127,17 @@ run72.addEventListener("click",()=>{
 
 // zde bude vaše řešení
 
+const input74 = document.getElementById("Input74");
+const out74 = document.getElementById("Output74");
+const run74 = document.getElementById("run74");
+run74.addEventListener("click",()=>{
+
+    if(!input74.value){return;}
+
+    const regTag74 = /<([a-zA-Z][\w:-]*)\b[^>]*>[\s\S]*?<\/\1>|<([a-zA-Z][\w:-]*)\b[^>]*>/g;
+
+    out74.textContent = input74.value.match(regTag74) ?? "Žádné tagy text neobsahuje";
+})
 
 /* -----------------------------------------------------------
  * Úloha 75: Čištění textu
@@ -123,6 +152,20 @@ run72.addEventListener("click",()=>{
 
 // zde bude vaše řešení
 
+const input75 = document.getElementById("Input75");
+const out75 = document.getElementById("Output75");
+const run75 = document.getElementById("run75");
+run75.addEventListener("click",()=>{
+
+    if(!input75.value){return;}
+
+    const regMezery75 = /[\s]{2,}/g;
+    const regSpec75 = /[^\p{L}0-9\s]+/gu;
+
+    let x75 = input75.value.replace(regMezery75, " ");
+
+    out75.textContent=x75.replace(regSpec75, "");
+})
 
 /* -----------------------------------------------------------
  * Úloha 76: Parsování CSV
