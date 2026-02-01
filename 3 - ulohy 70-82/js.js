@@ -177,6 +177,19 @@ run75.addEventListener("click",()=>{
 
 // zde bude vaše řešení
 
+//parsing csv pomoci regexu by byl pain nad miru, co snesu :(
+
+/*
+const input76 = document.getElementById("Input76");
+const out76 = document.getElementById("Output76");
+const run76 = document.getElementById("run76");
+run76.addEventListener("click",()=>{
+
+    if(!input76.value){return;}
+
+    const regCSV76 = / /g;
+})
+
 
 /* -----------------------------------------------------------
  * Úloha 77: Validace kreditní karty
@@ -188,6 +201,20 @@ run75.addEventListener("click",()=>{
 
 // zde bude vaše řešení
 
+const input77 = document.getElementById("Input77");
+const out77 = document.getElementById("Output77");
+const run77 = document.getElementById("run77");
+run77.addEventListener("click",()=>{
+
+    if(!input77.value){return;}
+
+    const regKredit77 = /^\d{16}$/;
+    const regMez77 = /\s/g;
+
+    out77.textContent= regKredit77.test(input77.value.replace(regMez77,"")) ?
+        "Cislo karty je validni!"
+        : "Cislo karty neni validni!!";
+})
 
 /* -----------------------------------------------------------
  * Úloha 78: Minifikace CSS
@@ -200,6 +227,17 @@ run75.addEventListener("click",()=>{
 
 // zde bude vaše řešení
 
+const input78 = document.getElementById("Input78");
+const out78 = document.getElementById("Output78");
+const run78 = document.getElementById("run78");
+run78.addEventListener("click",()=>{
+
+    if(!input78.value){return;}
+
+    const regCleanCSS78 = /([\s]{2,})|(\/\*(.|\s)*\*\/)+/g;
+
+    out78.textContent=input78.value.replace(regCleanCSS78," ");
+})
 
 /* -----------------------------------------------------------
  * Úloha 79: Analyzátor logů
