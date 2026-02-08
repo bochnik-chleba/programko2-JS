@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <title>JS Úlohy – Třídy / Budova</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+
+  <div class="flex">
+
+    <!-- SIDEBAR -->
+    <aside class="w-64 bg-white shadow h-screen p-4 sticky top-0">
+      <h1 class="text-xl font-bold mb-4">Seznam úloh</h1>
+      <nav class="space-y-2">
+        <a href="#u100" class="block text-blue-600 hover:underline">Úloha 100</a>
+        <a href="#u101" class="block text-blue-600 hover:underline">Úloha 101</a>
+        <a href="#u102" class="block text-blue-600 hover:underline">Úloha 102</a>
+        <a href="#u104" class="block text-blue-600 hover:underline">Úloha 104</a>
+        <a href="#u108" class="block text-blue-600 hover:underline">Úloha 108</a>
+        <a href="#u109" class="block text-blue-600 hover:underline">Úloha 109</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="flex-1 p-8 space-y-16">
+
+      <!-- Úloha 100 -->
+      <section id="u100" class="bg-white p-6 shadow rounded">
+        <h2 class="text-xl font-bold mb-2">Úloha 100: Základní třída Budova</h2>
+        <button onclick="u100()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          Spustit
+        </button>
+        <pre id="out100" class="mt-4 text-sm whitespace-pre"></pre>
+      </section>
+
+      <!-- Úloha 101 -->
+      <section id="u101" class="bg-white p-6 shadow rounded">
+        <h2 class="text-xl font-bold mb-2">Úloha 101: Metoda popis()</h2>
+        <button onclick="u101()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          Spustit
+        </button>
+        <div id="out101" class="mt-4 text-sm whitespace-pre"></div>
+      </section>
+
+      <!-- Úloha 102 – interaktivní -->
+      <section id="u102" class="bg-white p-6 shadow rounded">
+        <h2 class="text-xl font-bold mb-2">Úloha 102: Instance + volání metody (formulář)</h2>
+
+        <div class="flex gap-2 mb-4">
+          <input id="u102name" type="text" placeholder="Název budovy" class="border p-2 flex-1">
+          <input id="u102floors" type="number" placeholder="Pater" class="border p-2 w-24">
+        </div>
+
+        <button onclick="u102()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          Vytvořit budovu
+        </button>
+
+        <div id="out102" class="mt-4 text-sm whitespace-pre"></div>
+      </section>
+
+      <!-- Úloha 104 – interaktivní -->
+      <section id="u104" class="bg-white p-6 shadow rounded">
+        <h2 class="text-xl font-bold mb-2">Úloha 104: Dědění tříd (formulář)</h2>
+
+        <div class="grid grid-cols-3 gap-2 mb-4">
+          <input id="u104name" type="text" placeholder="Název" class="border p-2">
+          <input id="u104floors" type="number" placeholder="Pater" class="border p-2">
+          <input id="u104offices" type="number" placeholder="Kanceláří" class="border p-2">
+        </div>
+
+        <button onclick="u104()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          Vytvořit podnikatelskou budovu
+        </button>
+
+        <div id="out104" class="mt-4 text-sm whitespace-pre"></div>
+      </section>
+
+      <!-- Úloha 108 -->
+      <section id="u108" class="bg-white p-6 shadow rounded">
+        <h2 class="text-xl font-bold mb-2">Úloha 108: Statická metoda</h2>
+        <button onclick="u108()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          Spustit
+        </button>
+        <div id="out108" class="mt-4 text-sm whitespace-pre"></div>
+      </section>
+
+      <!-- Úloha 109 – interaktivní -->
+      <section id="u109" class="bg-white p-6 shadow rounded">
+        <h2 class="text-xl font-bold mb-2">Úloha 109: Kompletní OOP (formulář)</h2>
+
+        <div class="grid grid-cols-3 gap-2 mb-4">
+          <input id="u109name" type="text" placeholder="Název" class="border p-2">
+          <input id="u109floors" type="number" placeholder="Pater" class="border p-2">
+          <input id="u109offices" type="number" placeholder="Kanceláří" class="border p-2">
+        </div>
+
+        <button onclick="u109()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          Vytvořit a zobrazit
+        </button>
+
+        <div id="out109" class="mt-4 text-sm whitespace-pre"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>

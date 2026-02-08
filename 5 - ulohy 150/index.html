@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moduly JS – Praktické úkoly</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-white shadow-md p-6 flex-shrink-0">
+    <h2 class="text-2xl font-bold mb-6">Úkoly</h2>
+    <nav class="space-y-2">
+      <a href="#greet-section" class="block px-3 py-2 rounded hover:bg-gray-200">Úloha 150 – Pozdrav</a>
+      <a href="#math-section" class="block px-3 py-2 rounded hover:bg-gray-200">Úloha 151 – Matematika</a>
+      <a href="#user-section" class="block px-3 py-2 rounded hover:bg-gray-200">Úloha 152-153 – Data uživatele</a>
+      <a href="#todo-section" class="block px-3 py-2 rounded hover:bg-gray-200">Úloha 156,160 – Todo List</a>
+      <a href="#card-section" class="block px-3 py-2 rounded hover:bg-gray-200">Úloha 157 – Karty</a>
+      <a href="#dynamic-section" class="block px-3 py-2 rounded hover:bg-gray-200">Úloha 159 – Dynamický import</a>
+    </nav>
+  </aside>
+
+  <!-- Hlavní obsah -->
+  <main class="flex-1 p-6 space-y-8 overflow-auto">
+
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">
+      Modulová aplikace – JS Praktické úkoly
+    </h1>
+
+    <!-- Sekce: Greet -->
+    <section id="greet-section" class="p-4 bg-white rounded shadow space-y-2">
+      <h2 class="text-xl font-semibold">Úloha 150 – Pozdrav</h2>
+      <div id="greet-output" class="text-gray-700"></div>
+      <button id="btn150" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+        Pozdravit
+      </button>
+    </section>
+
+    <!-- Sekce: Matematické funkce -->
+    <section id="math-section" class="p-4 bg-white rounded shadow space-y-2">
+      <h2 class="text-xl font-semibold">Úloha 151 – Matematické funkce</h2>
+      <div class="flex gap-2">
+        <input id="math-a" type="number" value="5" class="p-2 border rounded w-20">
+        <input id="math-b" type="number" value="3" class="p-2 border rounded w-20">
+        <button id="btn151" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+          Spočítat
+        </button>
+      </div>
+      <div id="math-output" class="text-gray-700 mt-2"></div>
+    </section>
+
+    <!-- Sekce: Data uživatele -->
+    <section id="user-section" class="p-4 bg-white rounded shadow space-y-2">
+      <h2 class="text-xl font-semibold">Úloha 152-153 – Data uživatele</h2>
+      <div id="user-output" class="text-gray-700"></div>
+      <button id="btn152" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+        Zobrazit uživatele
+      </button>
+    </section>
+
+    <!-- Sekce: Todo list -->
+    <section id="todo-section" class="p-4 bg-white rounded shadow space-y-4">
+      <h2 class="text-xl font-semibold">Úloha 156, 160 – Todo List</h2>
+      <div class="flex gap-2">
+        <input id="todo-input" type="text" placeholder="Nový úkol" class="flex-1 p-2 border rounded">
+        <button id="btn156" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+          Přidat
+        </button>
+      </div>
+      <ul id="todo-list" class="list-disc list-inside text-gray-700"></ul>
+    </section>
+
+    <!-- Sekce: Karty -->
+    <section id="card-section" class="p-4 bg-white rounded shadow space-y-2">
+      <h2 class="text-xl font-semibold">Úloha 157 – Karty</h2>
+      <div id="card-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+      <button id="btn157" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+        Vykreslit karty
+      </button>
+    </section>
+
+    <!-- Sekce: Dynamický import -->
+    <section id="dynamic-section" class="p-4 bg-white rounded shadow space-y-2">
+      <h2 class="text-xl font-semibold">Úloha 159 – Dynamický import</h2>
+      <button id="btn159" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+        Načti data
+      </button>
+      <div id="dynamic-output" class="text-gray-700 mt-2"></div>
+    </section>
+
+  </main>
+
+  <!-- Hlavní skript -->
+  <script type="module">
+    import { greetUser, showMath, showUserData, addTodoItem, renderCards, dynamicLoadData } from './script.js';
+
+    // úloha 150
+    function Uloha150()
+    {
+      const out150 = document.getElementById('greet-output');
+      greetUser(out150, 'Eva');
+    }
+
+    function Uloha151()
+    {
+      const out151 = document.getElementById('math-output');
+      const val151a = Number(document.getElementById('math-a').value)
+      const val152b = Number(document.getElementById('math-b').value)
+      showMath(out151, val151a, val151b);
+    }
+    
+    function Uloha152()
+    {
+      const out = document.getElementById('user-output');
+      showUserData(out);
+    }
+
+    function Uloha156()
+    {
+      const val = document.getElementById('todo-input').value;
+      const out = document.getElementById('todo-list');
+      addTodoItem(val, out);
+    }
+    
+    function Uloha157()
+    {
+      const out157 = document.getElementById('card-container');
+      renderCards(out157);
+    }    
+    
+    function Uloha159()
+    {
+      const out159 = document.getElementById('dynamic-output');
+      dynamicLoadData(out159);
+    }
+
+    document.getElementById("btn-150").addEventListener("click", Uloha150());
+    document.getElementById("btn151").addEventListener("click", Uloha151());
+    document.getElementById("btn152").addEventListener("click", Uloha152());
+    document.getElementById("btn156").addEventListener("click", Uloha156());
+    document.getElementById("btn157").addEventListener("click", Uloha157());
+    document.getElementById("btn159").addEventListener("click", Uloha159());    
+
+  </script>
+</body>
+</html>
